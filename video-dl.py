@@ -24,6 +24,7 @@ try:
 
     video_link = input('Enter video link: ')
     options = {
+        'noplaylist': True,
         'listformats': True
     }
     with downloader.YoutubeDL(options) as d:
@@ -33,6 +34,7 @@ try:
 
     video_format = input('Enter download format: ')
     options = {
+        'noplaylist': True,
         'format': video_format,
         'outtmpl': '%(id)s.%(ext)s'
     }
