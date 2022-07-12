@@ -5,10 +5,7 @@ import sys
 import pathlib
 import subprocess
 
-if 'norestart' not in sys.argv:
-    subprocess.call(f'"{sys.executable}" -m pip install -qq --user -U yt-dlp', shell=True)
-    subprocess.call(f'"{sys.executable}" "{sys.argv[0]}" norestart', shell=True)
-    sys.exit()
+subprocess.call(f'"{sys.executable}" -m pip install -qq --user -U yt-dlp', shell=True)
 
 try:
     import yt_dlp as downloader
@@ -22,7 +19,13 @@ try:
 
     print()
 
-    video_link = input('Enter video link: ')
+    if len(sys.argv) > 1:
+        video_link = sys.argv[1]
+        print(f'Video link: {video_link}')
+        print()
+    else:
+        video_link = input('Enter video link: ')
+
     options = {
         'noplaylist': True,
         'listformats': True
@@ -33,6 +36,7 @@ try:
     print()
 
     video_format = input('Enter download format: ')
+
     options = {
         'noplaylist': True,
         'format': video_format,
