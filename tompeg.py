@@ -38,6 +38,6 @@ ffmpeg_command=f'''ffmpeg -i "{input_file}" \
                           -b:a "{output_audio}" \
                           -map_metadata -1 \
                           -metadata comment="{output_comment}" \
-                          {output_file}'''
+                          "{output_file}" '''
 
 subprocess.call(ffmpeg_command, shell=True)
