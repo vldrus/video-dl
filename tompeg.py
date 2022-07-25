@@ -36,7 +36,7 @@ ffmpeg_command=f'''ffmpeg -i "{input_file}" \
                           -vf scale="{output_scale}" \
                           -crf "{output_crf}" \
                           -b:a "{output_audio}" \
-                          -map_metadata -1 \
+                          -map_metadata "-1" \
                           -metadata comment="{output_comment}" \
                           "{output_file}" '''
 
