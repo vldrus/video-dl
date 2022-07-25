@@ -31,7 +31,7 @@ if [ "$file_crf" = "" ]; then
 fi
 
 
-echo -n "Enter crf [$DEFAULT_FILE_AUDIO]: "
+echo -n "Enter audio [$DEFAULT_FILE_AUDIO]: "
 
 read file_audio < /dev/tty
 
