@@ -50,4 +50,6 @@ except Exception as e:
     pass
 
 print()
-input('Press <Enter> to close...')
+
+if len(sys.argv) < 2:
+    input('Press <Enter> to close...')
