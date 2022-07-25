@@ -17,7 +17,7 @@ DEFAULT_OUTPUT_AUDIO = '96k'
 
 
 input_file = sys.argv[1]
-output_file = pathlib.Path(input_file).stem + '_out.mp4'
+output_file = pathlib.Path(input_file).parent / (pathlib.Path(input_file).stem + '_out.mp4')
 
 print('Input file: ', input_file)
 print('Output file:', output_file)
@@ -29,7 +29,7 @@ output_audio = input(f'Enter audio [{DEFAULT_OUTPUT_AUDIO}]: ') or DEFAULT_OUTPU
 
 
 output_scale=f'-2:{output_width}:flags=lanczos'
-output_comment=f'WIDTH={output_width},CRF={output_crf},AUDIO={output_audio},INPUT={input_file}'
+output_comment=f'WIDTH={output_width},CRF={output_crf},AUDIO={output_audio},INPUT={pathlib.Path(input_file).name}'
 
 
 ffmpeg_command=f'''ffmpeg -i "{input_file}" \
