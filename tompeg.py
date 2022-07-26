@@ -18,7 +18,7 @@ DEFAULT_OUTPUT_PRESET = "veryslow"
 
 
 input_file = sys.argv[1]
-output_file = pathlib.Path(input_file).parent / (pathlib.Path(input_file).stem + '_out.mp4')
+output_file = pathlib.Path(input_file).parent / f'{pathlib.Path(input_file).stem}_out.mp4'
 
 print('Input file: ', input_file)
 print('Output file:', output_file)
