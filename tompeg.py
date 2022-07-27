@@ -9,7 +9,7 @@ import subprocess
 DEFAULT_OUTPUT_WIDTH  = '720'
 DEFAULT_OUTPUT_CRF    = '24'
 DEFAULT_OUTPUT_AUDIO  = '96k'
-DEFAULT_OUTPUT_PRESET = "veryslow"
+DEFAULT_OUTPUT_PRESET = 'veryslow'
 
 
 if len(sys.argv) < 2:
