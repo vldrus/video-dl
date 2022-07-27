@@ -6,15 +6,15 @@ import pathlib
 import subprocess
 
 
-if len(sys.argv) < 2:
-    print(f'Usage: {sys.argv[0]} input_file.webm')
-    sys.exit(1)
-
-
 DEFAULT_OUTPUT_WIDTH = '720'
 DEFAULT_OUTPUT_CRF = '24'
 DEFAULT_OUTPUT_AUDIO = '96k'
 DEFAULT_OUTPUT_PRESET = "veryslow"
+
+
+if len(sys.argv) < 2:
+    print(f'Usage: {sys.argv[0]} input_file.webm')
+    sys.exit(1)
 
 
 input_file = sys.argv[1]
@@ -30,9 +30,7 @@ output_audio = input(f'Enter audio [{DEFAULT_OUTPUT_AUDIO}]: ') or DEFAULT_OUTPU
 
 
 output_scale=f'-2:{output_width}:flags=lanczos'
-
 output_preset=f'{DEFAULT_OUTPUT_PRESET}'
-
 output_comment=f'WIDTH={output_width},CRF={output_crf},AUDIO={output_audio},INPUT={pathlib.Path(input_file).name}'
 
 
