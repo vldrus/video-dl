@@ -33,7 +33,7 @@ if output_crf.lower() == 'no':
     output_quality = f'-b:v "{output_video}"'
 
 output_audio   = input(f'Enter audio [{DEFAULT_OUTPUT_AUDIO}]: ') or DEFAULT_OUTPUT_AUDIO
-output_preset  = input(f'Enter preset [{DEFAULT_OUTPUT_PRESET}]') or DEFAULT_OUTPUT_PRESET
+output_preset  = input(f'Enter preset [{DEFAULT_OUTPUT_PRESET}]: ') or DEFAULT_OUTPUT_PRESET
 
 output_scale   = f'-2:{output_width}:flags=lanczos'
 output_comment = f'CRF={output_crf},PRESET={output_preset},INPUT={pathlib.Path(input_file).name}'
