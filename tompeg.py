@@ -10,7 +10,7 @@ DEFAULT_OUTPUT_WIDTH  = '720'
 DEFAULT_OUTPUT_CRF    = '24'
 DEFAULT_OUTPUT_VIDEO  = '900k'
 DEFAULT_OUTPUT_AUDIO  = '96k'
-DEFAULT_OUTPUT_PRESET = 'veryslow'
+DEFAULT_OUTPUT_PRESET = 'slow'
 
 
 if len(sys.argv) < 2:
@@ -33,21 +33,24 @@ if output_crf.lower() == 'no':
     output_quality = f'-b:v "{output_video}"'
 
 output_audio   = input(f'Enter audio [{DEFAULT_OUTPUT_AUDIO}]: ') or DEFAULT_OUTPUT_AUDIO
+output_preset  = input(f'Enter preset [{DEFAULT_OUTPUT_PRESET}]') or DEFAULT_OUTPUT_PRESET
+
 output_scale   = f'-2:{output_width}:flags=lanczos'
-output_preset  = f'{DEFAULT_OUTPUT_PRESET}'
 output_comment = f'CRF={output_crf},PRESET={output_preset},INPUT={pathlib.Path(input_file).name}'
 
-ffmpeg_command=f'''ffmpeg -i "{input_file}" \
-                          -vf scale="{output_scale}" \
-                          -preset "{output_preset}" \
-                          {output_quality} \
-                          -b:a "{output_audio}" \
-                          -map_metadata "-1" \
-                          -metadata comment="{output_comment}" \
-                          "{output_file}" '''
+ffmpeg_command = f'''\
+ffmpeg -i "{input_file}" \
+-vf scale="{output_scale}" \
+-preset "{output_preset}" \
+{output_quality} \
+-b:a "{output_audio}" \
+-map_metadata "-1" \
+-metadata comment="{output_comment}" \
+"{output_file}" \
+'''
 
 print()
-print('Executing ffmpeg with the following parameters:')
+print('Executing ffmpeg with the following command:')
 print()
 print(ffmpeg_command)
 print(flush=True)
