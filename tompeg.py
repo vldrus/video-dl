@@ -22,7 +22,7 @@ output_file = pathlib.Path(input_file).parent / f'{pathlib.Path(input_file).stem
 
 print('Input file: ', input_file)
 print('Output file:', output_file)
-print()
+print(flush=True)
 
 output_width   = input(f'Enter width [{DEFAULT_OUTPUT_WIDTH}]: ') or DEFAULT_OUTPUT_WIDTH
 
