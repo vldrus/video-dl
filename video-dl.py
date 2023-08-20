@@ -31,10 +31,10 @@ print()
 
 video_format = input('Enter download format: ')
 
-video_output_template = '%(id)s.%(ext)s'
+video_output = '%(id)s.%(ext)s'
 
-video_output_format = 'mkv'
+video_merge  = 'mkv'
 
 print()
 
-subprocess.call(f'"{exe_file}" --no-playlist --format "{video_format}" --output "{video_output_template}" --merge-output-format "{video_output_format}" "{video_link}"', shell=True)
+subprocess.call(f'"{exe_file}" --no-playlist --format "{video_format}" --output "{video_output}" --merge-output-format "{video_merge}" "{video_link}"', shell=True)
